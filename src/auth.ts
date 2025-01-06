@@ -20,16 +20,21 @@ pages:{
         email:{},
         password:{}
     },
-    authorize: async (Credentials) =>{
+    authorize: async (credentials) =>{
         const baseUrl= process.env.API +'/auth/signin';
 
 
         const response=await fetch(baseUrl,{
            method:'POST',
            cache:'no-store',
-           body:JSON.stringify(Credentials),
+           body:JSON.stringify({
+            email:credentials?.email,
+            password:credentials?.password
+
+           }),
            headers:{
             ...JSON_HEADER,
+           
 
 
            }

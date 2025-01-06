@@ -217,7 +217,7 @@ export default function LoginForm() {
       });
 
       if (login?.ok) {
-        router.push('/');
+        router.push('/dashboard');
       } else {
         setApiError(login?.error || 'Login failed');
       }
