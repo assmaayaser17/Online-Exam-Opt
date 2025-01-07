@@ -46,10 +46,12 @@ pages:{
         const payload:APIResponse<LoginResponse> = await response.json()
         //return user if response was successful
         if(payload.message==='success') {
+            console.log('payload',payload)
             return {
-                token:payload.data.token,
-                ...payload.data.user
+                token:payload?.token,
+                ...payload?.user
             }
+            
         }
         //if wise response was wrong
         throw new Error(payload.message)
@@ -59,18 +61,21 @@ pages:{
    })
 ],
 callbacks:{
-    jwt:({token,user})=>{
+    jwt:  ({token,user})=>{
         if(user){
             token.token=user.token;
-           token.username=user.username,
-           token.firstName=user.firstName,
-           token.lastName=user.lastName,
-            token.email=user.email,
-           token.phone=user.phone,
-            token.role=user.role,
+           token.username=user.username;
+           token.firstName=user.firstName;
+           token.lastName=user.lastName;
+            token.email=user.email;
+           token.phone=user.phone;
+            token.role=user.role;
             token.isVerified= user.isVerified
+            console.log('jwttoken',token)
         }
+
         return token;
+        
     },
     session:({session,token}) =>{
         session.username=token.username;

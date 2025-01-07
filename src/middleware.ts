@@ -7,6 +7,7 @@ const privatePages = ['/dashboard']
 
 export  default async function middleware(request: NextRequest) {
     const token = await getToken ({req:request})
+    console.log("Middleware Token:", token);
     const url=request.nextUrl.pathname;
     if(token && authPages.includes(url)){
         const redirectUrl= new URL('/dashboard',request.nextUrl.origin)
