@@ -57,9 +57,9 @@ export default function RegisterPage() {
 
   return (
     <div className="flex gap-8">
-        <SidePhoto/>
-      <div className="container p-5 flex flex-col w-7/12">
-      <Navbar/>
+        {/* <SidePhoto/> */}
+      <div className="container p-5 flex flex-col ">
+      {/* <Navbar/> */}
         <div className="pl-52 text-xl font-bold pb-5">
           <p>Sign Up</p>
         </div>

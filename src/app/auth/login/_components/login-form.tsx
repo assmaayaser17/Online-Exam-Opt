@@ -6,12 +6,11 @@ import { signIn } from 'next-auth/react';
 import { useFormik, FormikHelpers } from 'formik';
 import Image from 'next/image';
 import Link from 'next/link';
-import google from '../../../../../public/assets/images/Google.png'; // Adjust paths as necessary
+import google from '../../../../../public/assets/images/Google.png'; 
 import twitter from '../../../../../public/assets/images/twitter.png';
 import facebook from '../../../../../public/assets/images/facebook.png';
 import apple from '../../../../../public/assets/images/apple.png';
-import SidePhoto from '../../../../components/common/sidephoto'
-import Navbar  from '../../../../components/common/navbar'
+
 // import Welcomepart from './Welcomepart';
 // import Navbar from './Navbar';
 
@@ -61,9 +60,9 @@ export  default function LoginForm(){
   return (
     <>
       <div className="flex gap-8">
-        <SidePhoto/>
-        <div className="container p-5 flex flex-col w-7/12">
-        <Navbar/>
+        
+        <div className="container p-5  flex flex-col ">
+       
           <div className="pl-52 text-xl font-bold pb-5">
             <p>Sign in</p>
           </div>

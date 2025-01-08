@@ -1,7 +1,15 @@
 import React from 'react'
+import ProfileCard from '@/components/custom/profilecard'
 
-export default function  page() {
+
+
+export default function page() {
   return (
-    <div>dashboard page</div>
+    <>
+    <ProfileCard/>
+    {/* <Dashboard {params}/> */}
+    </>
+    
+    
   )
 }
