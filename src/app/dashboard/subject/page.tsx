@@ -4,16 +4,15 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 
-
-
 export default function Subjects() {
     
   const [subjects, setSubjects] = useState();
   async function getSubjects () {
       const res =  await fetch('http://localhost:3000/api/subjects');
       const data = await res.json();
+      console.log(data)
       setSubjects(data.subjects);
-      console.log("The Data Is From Fetch: ", data.subjects[0])   
+      console.log("The Data Is From Fetch: ", data)   
   }
    
   useEffect(() => {
@@ -37,7 +36,7 @@ export default function Subjects() {
         return( 
           <div key={index} className=' relative  mt-5 '>
             
-            <Link href={`/Subjectonexam/${subject?._id}`}>
+            <Link href={`/dashboard/exam/${subject?._id}`}>
             
             <Image src={subject?.icon} alt={subject?.name} width={330} height={200} className='rounded-lg '/>
 

@@ -1,10 +1,11 @@
-
 import { JSON_HEADER } from "@/lib/constants/api.constant";
 import { getToken } from "next-auth/jwt";
 import { NextRequest, NextResponse } from "next/server";
 
 export async function GET(req: NextRequest) {
-
+    const { searchParams } = new URL(req.url); 
+        const id= searchParams.get("subject");
+        console.log(id)
   try {
     const token = await getToken({ req });
 
@@ -15,8 +16,9 @@ export async function GET(req: NextRequest) {
       );
     }
 
-    const fetchingURL = (process.env.API +'/subjects')
+    const fetchingURL = (process.env.API +`/exams?id=${id}`)
     const userToken = token?.token
+
    
     const response = await fetch(fetchingURL, {
       headers: {
@@ -27,7 +29,6 @@ export async function GET(req: NextRequest) {
   );
 
     const data = await response.json();
-    console.log(data)
 
     return NextResponse.json({...data});
 
@@ -39,4 +40,4 @@ export async function GET(req: NextRequest) {
     );  
   }
 }
-  
+
