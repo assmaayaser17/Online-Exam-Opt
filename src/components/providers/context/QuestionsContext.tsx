@@ -1,7 +1,7 @@
 'use client'
 import { createContext, useState } from "react"
 
-export const questionsContext = createContext(null);
+export const QuestionsContext = createContext(null);
 
 
 export default function QuestionsProvider({children}) {
@@ -12,12 +12,15 @@ const [questions, setQuestions] = useState([]);
 
 
 
-const handleAnswerSelect = (questionId, answerKey) => {
+const handleAnswerSelect = (questionId: any, answerKey: any) => {
     const storedanswer=  {
       questionId:questionId,
       correct: answerKey
   }
-    setSelectedAnswers((prev) => [...prev,storedanswer]);
+    setSelectedAnswers( (prev) => {
+      return [...prev,storedanswer]
+      }
+      );
 
     console.log(selectedAnswers)
 
@@ -25,6 +28,6 @@ const handleAnswerSelect = (questionId, answerKey) => {
   };
 
 
-  return  <questionsContext.Provider value={{handleAnswerSelect,selectedAnswers}}> {children} </questionsContext.Provider>
+  return  <QuestionsContext.Provider value={{handleAnswerSelect,selectedAnswers}}> {children} </QuestionsContext.Provider>
   
 }
