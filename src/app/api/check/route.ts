@@ -17,15 +17,21 @@ export async function POST(req: NextRequest) {
 
     const fetchingURL = (process.env.API +`/questions/check`)
     const userToken = token?.token
+    console.log('usertoken',userToken)
 
    
     const response = await fetch(fetchingURL, {
+        
       headers: {
         ...JSON_HEADER,
         token: userToken,
       },
+      
+      
     }
+    
   );
+  console.log(response)
 
     const data = await response.json();
 
