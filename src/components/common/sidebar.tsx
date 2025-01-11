@@ -1,8 +1,10 @@
+'use client'
 import React from 'react'
 import Image from 'next/image'
 import finallogo from '../../../public/assets/images/FinalLogo.png'
 import quiz from '../../../public/assets/images/quiz.png'
 import logout from '../../../public/assets/images/logout.png'
+import { signOut } from 'next-auth/react'
 
 export default function SideBar() {
   return (
@@ -25,7 +27,10 @@ export default function SideBar() {
         </div>
         <div className='flex gap-10'>
             <Image src={logout} alt=''/>
-            <p>Log Out</p>
+           
+            <button onClick={ ()=> signOut({
+                callbackUrl:'/auth/login?callbackUrl=/dashboard '
+            })}>Log Out </button>
         </div>
         </div>
         </div>
