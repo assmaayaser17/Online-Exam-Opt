@@ -9,8 +9,11 @@ const BASE_URL = process.env.API + "/questions";
 export const checkQuestionsAction = async (fields: CheckQuestionsFields) => {
   const token = await getToken({ req });
 
+
   try {
     const userToken = token?.token
+    console.log(userToken)
+
     const response = await fetch(BASE_URL + "/check", {
        
       method: "POST",

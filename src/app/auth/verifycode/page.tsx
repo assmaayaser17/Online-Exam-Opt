@@ -26,9 +26,13 @@ export default function Page(): JSX.Element {
       console.log(response);
 
       
-      if (response.message === 'success') {
+      // if (response.message === 'success') {
+      //   router.push('/auth/resetpassword');
+      // }
+      if (response?.status === 'Success') {
         router.push('/auth/resetpassword');
       }
+      
     } catch (error) {
       console.error('Error submitting forgot password form:', error);
       formikHelpers.setSubmitting(false);
