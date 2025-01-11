@@ -9,8 +9,6 @@ import twitter from '../../../../../public/assets/images/twitter.png';
 import facebook from '../../../../../public/assets/images/facebook.png';
 import apple from '../../../../../public/assets/images/apple.png';
 import { registerAction } from '../../../../lib/actions/auth.action'; 
-import Navbar from '@/components/common/navbar';
-import SidePhoto from '@/components/common/sidephoto';
 
 interface RegisterFields {
   username: string;
@@ -57,9 +55,7 @@ export default function RegisterPage() {
 
   return (
     <div className="flex gap-8">
-        {/* <SidePhoto/> */}
       <div className="container p-5 flex flex-col ">
-      {/* <Navbar/> */}
         <div className="pl-52 text-xl font-bold pb-5">
           <p>Sign Up</p>
         </div>

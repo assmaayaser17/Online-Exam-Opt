@@ -11,14 +11,10 @@ import twitter from '../../../../../public/assets/images/twitter.png';
 import facebook from '../../../../../public/assets/images/facebook.png';
 import apple from '../../../../../public/assets/images/apple.png';
 
-// import Welcomepart from './Welcomepart';
-// import Navbar from './Navbar';
-
 interface FormValues {
   email: string;
   password: string;
 }
-
 export  default function LoginForm(){
   const [apiError, setApiError] = useState<string | null>(null);
   const router = useRouter();
@@ -104,7 +100,7 @@ export  default function LoginForm(){
 
             <div>
               <div className="flex flex-col items-end text-[#4461F2]">
-                <Link href="/forgotpassword">
+                <Link href="/auth/forgotpassword">
                   <p>Recover Password?</p>
                 </Link>
               </div>
